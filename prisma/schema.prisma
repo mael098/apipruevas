@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlserver"
+}
+
+model employee {
+  employee_id               Int     @id
+  employee_name             String
+  employee_last_name        String
+  employee_second_last_name String?
+  employee_status           String
+  employee_password         String?
+  rfc                       String?
+  curp                      String?
+  imss_number               String?
+  employee_email            String?
+  entry_date                String?
+  birth_date                String?
+  gender                    String?
+  cost_center_name          String?
+  department_name           String?
+  work_station_name         String?
+  business_name             String?
+  integrated_salary         Float?
+  monthly_salary_avg        Float?
+  termination_date          String?
+  categoria                 Int?
+  niv_tab_sue               Int?
+  sind                      Int?
+  regimen_contrata_sat      Int?
+  cla_contrato              Int?
+  tipo_salario              Int?
+  cla_forma_pago            Int?
+  calle                     String?
+  ciudad                    String?
+  estado_domicilio          Int?
+  lugar_nac                 String?
+  cla_estado_nac            Int?
+  nacionalidad              String?
+}
