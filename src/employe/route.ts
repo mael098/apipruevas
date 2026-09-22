@@ -51,7 +51,7 @@ const curpValida = (nacimiento: Date, sexo: 'M' | 'F') => {
 
 const generateEmployees = () => {
     const employees: Employee[] = [];
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 100; i++) {
         const sexo = faker.helpers.arrayElement(['M', 'F'] as const);
         const nacimiento = faker.date.birthdate({ mode: 'age', min: 18, max: 65 });
         const genero = sexo === 'M' ? 'male' : 'female';

@@ -1,7 +1,6 @@
 import express from "express";
 import { faker } from "@faker-js/faker";
 import type { User, Carito } from '../types/type.ts';
-import prisma from "../lib/db.ts";
 import generateEmployees from "./employe/route.ts";
 
 const app = express();
@@ -43,17 +42,8 @@ app.get("/caritos", (req, res) => {
     res.json(caritos)
 })
 
-app.get("/employees", async (req, res) => {
-    try {
-        const employees = await prisma.employee.findMany();
-        console.log(employees);
-        res.json(employees);
-    } catch (error) {
-        res.status(500).json({ error: "Error al obtener empleados", details: String(error) });
-    }
-})
 
-app.get("/employeeslist", async (req, res) => {
+app.get("/employees", async (req, res) => {
     try {
         const employees = generateEmployees();
         console.log(employees);
