@@ -54,11 +54,12 @@ const generateEmployees = () => {
     for (let i = 0; i < 10; i++) {
         const sexo = faker.helpers.arrayElement(['M', 'F'] as const);
         const nacimiento = faker.date.birthdate({ mode: 'age', min: 18, max: 65 });
+        const genero = sexo === 'M' ? 'male' : 'female';
         employees.push({
             id: faker.number.int(),
             SUELDO_DIA: faker.finance.amount({ min: 200, max: 2000, dec: 2 }),
             SDI: faker.finance.amount({ min: 220, max: 2200, dec: 2 }),
-            NOM_TRAB: faker.person.firstName(sexo),
+            NOM_TRAB: faker.person.firstName(genero),
             AP_PATERNO: faker.person.lastName(),
             AP_MATERNO: faker.person.lastName(),
             FECHA_ING: formatDate(faker.date.past({ years: 10 })),

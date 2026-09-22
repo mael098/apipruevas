@@ -46,6 +46,7 @@ app.get("/caritos", (req, res) => {
 app.get("/employees", async (req, res) => {
     try {
         const employees = await prisma.employee.findMany();
+        console.log(employees);
         res.json(employees);
     } catch (error) {
         res.status(500).json({ error: "Error al obtener empleados", details: String(error) });
@@ -55,6 +56,7 @@ app.get("/employees", async (req, res) => {
 app.get("/employeeslist", async (req, res) => {
     try {
         const employees = generateEmployees();
+        console.log(employees);
         res.json(employees);
     } catch (error) {
         res.status(500).json({ error: "Error al generar empleados", details: String(error) });
